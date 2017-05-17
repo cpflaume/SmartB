@@ -1,0 +1,1 @@
+Number SmartBottle "Der Füllstand ist [%d]" {mqtt="<[mosquitto:SmartBottle:state:default]"}
