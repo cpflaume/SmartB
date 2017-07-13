@@ -1,0 +1,4 @@
+Bridge hue:bridge:1 [ ipAddress="192.168.188.111" ] {
+	0210 bulb1 [ lightId="1" ]
+}
+

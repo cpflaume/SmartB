@@ -1,0 +1,28 @@
+/*styles for home content only*/
+
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+@include media-breakpoint-up(lg) {
+  .card-wrapper{
+    flex-wrap: nowrap !important;
+  }
+}
+
+
+.card-wrapper{
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card{
+  padding-top: 20px;
+  min-width: 34%;
+  margin: 20px;
+}
+
+.hello-images{
+  height: 300px;
+  width: auto;
+  max-width: 90%;
+}

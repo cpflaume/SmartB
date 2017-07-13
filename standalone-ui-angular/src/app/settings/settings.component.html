@@ -1,0 +1,62 @@
+<div class="settings-wrapper">
+<h1>Einstellungen</h1>
+
+  <br>
+  <p >Schriftgröße</p>
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-info " [ngClass]="{ active : (option == 1)}">
+      <input type="radio" name="options" id="option1" autocomplete="off" (click)="option = 1; onOptionSelected();"> Normal
+    </label>
+    <label class="btn btn-info" [ngClass]="{ active : (option == 2)}">
+      <input type="radio" name="options" id="option2" autocomplete="off" (click)="option = 2; onOptionSelected();"> Groß
+    </label>
+    <label class="btn btn-info" [ngClass]="{ active : (option == 3)}">
+      <input type="radio" name="options" id="option3" autocomplete="off" (click)="option = 3; onOptionSelected();"> Sehr Groß
+    </label>
+  </div>
+
+
+  <br>
+  <br>
+  <p >Farbe / Kontrast</p>
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-info " [ngClass]="{ active : (color == 0)}">
+      <input type="radio" name="options" id="option4" autocomplete="off" (click)="color = 0; onColorSelected();"> Farbig
+    </label>
+    <label class="btn btn-info" [ngClass]="{ active : (color == 1)}">
+      <input type="radio" name="options" id="option5" autocomplete="off" (click)="color = 1; onColorSelected();"> Schwarz/Weiß
+    </label>
+  </div>
+
+  <br>
+  <br>
+  <div *ngIf="! ((appState.state.user != undefined) && (appState.state.user.role=='supervisor'))">
+  <p >Erinnerungstyp</p>
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-info " [ngClass]="{ active : (reminder == 0)}">
+      <input type="radio" name="options" id="option6" autocomplete="off" (click)="reminder = 0; onReminderSelected();"> Bild Anzeigen
+    </label>
+    <label class="btn btn-info" [ngClass]="{ active : (reminder == 1)}">
+      <input type="radio" name="options" id="option7" autocomplete="off" (click)="reminder = 1; onReminderSelected();"> Video Abspielen
+    </label>
+    <label class="btn btn-info" [ngClass]="{ active : (reminder == 2)}">
+      <input type="radio" name="options" id="option8" autocomplete="off" (click)="reminder = 2; onReminderSelected();"> Ton Abspielen
+    </label>
+    <label class="btn btn-info" [ngClass]="{ active : (reminder == 3)}">
+      <input type="radio" name="options" id="option9" autocomplete="off" (click)="reminder = 3; onReminderSelected();"> Zufällig
+    </label>
+  </div>
+  </div>
+
+  <br>
+  <br>
+  <div *ngIf=" (appState.state.user != undefined) && (appState.state.user.role=='supervisor')">
+  <p>Gebe eine Email Adresse an über die du benachrichtigt werden willst.</p>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">@</span>
+    <input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1" (keyup)="onEmailChange($event)" value="{{appState.state.user?.email}}" >
+  </div>
+  </div>
+
+
+</div>

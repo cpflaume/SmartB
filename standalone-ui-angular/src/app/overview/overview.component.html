@@ -1,0 +1,85 @@
+<div class="container overview-wrapper">
+  <div class="row">
+    <div class="col col-sm-12">
+      <div class="row  border-bottom">
+        <div class="col ">
+          <div class="header-wrapper">
+            <h1> Hallo {{appState.state.user?.name || 'Unbekannter'}}</h1>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-sm-2">
+          <div class="bottle-wrapper">
+            <h2>SmartBottle</h2>
+            <img [src]="bottleImagePath">
+            <br>
+            <p>Füllstand: {{bottleValue}}%</p>
+            <p>{{bottleText}}</p>
+          </div>
+
+        </div>
+        <div class="col col-sm-8">
+          <div class="media-wrapper">
+            <statistic
+              *ngIf="(appState.state.user != undefined) && (appState.state.user.role=='supervisor')">
+            </statistic>
+            <div *ngIf="! ((appState.state.user != undefined) && (appState.state.user.role=='supervisor'))">
+              <div class="image-wrapper">
+                <img *ngIf="isShowImage" src="assets/img/drinking.PNG"/>
+              </div>
+              <div *ngIf="!isShowImage && !isShowVideo && !isPlaySound" class="alles-gut-wrapper">
+                <h1>Alles gut!</h1>
+                <img src="assets/img/ok.PNG" class="ok-image"/>
+                <img src="assets/img/natur.jpg" width="100%"/>
+              </div>
+              <!--<div class="video-wrapper">-->
+              <!--<iframe *ngIf="isShowVideo" src="https://www.youtube.com/embed/icFl4OGSBZ8?autoplay=1"  frameborder="0"><br/></iframe>-->
+              <!---->
+              <!--</div>-->
+              <div class="video-wrapper">
+                <video *ngIf="isShowVideo" width="100%" autoplay loop>
+                  <source src="assets/audio/video_drinking.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <div *ngIf="isPlaySound" class="musik-wrapper">
+                <img src="assets/img/musik.PNG"/>
+                <div class="audio-div">
+                  <audio controls autoplay>
+                    <source [src]="audiofile" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                  </audio>
+                  <audio controls
+                         onloadeddata="console.log('on load'); var audioPlayer = this; setTimeout(function() { audioPlayer.play(); }, 4000)">
+                    <source [src]="audiofile2" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>
+              </div>
+
+
+              <!--<button (click)="showImage()"> showImage</button>-->
+              <!--<button (click)="showVideo()"> showVideo</button>-->
+              <!--<button (click)="playSound()"> playSound</button>-->
+            </div>
+          </div>
+        </div>
+        <div class="col col-sm-2">
+          <div class="drink-level-wrapper">
+            <h2 class="text-xs-center">Trink-Level</h2>
+            <div class="progress progress-bar-vertical">
+              <div class="progress-bar progress-bar-success progress-bar-striped  progress-bar-animated"
+                   role="progressbar"
+                   aria-valuemin="0" aria-valuemax="100" [ngStyle]="{height : dringkingValue+'%'}">
+              </div>
+            </div>
+            <h2 class="text-xs-center">Das Trinklevel ist auf {{ dringkingValue | number:'2.0-0'}}%</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

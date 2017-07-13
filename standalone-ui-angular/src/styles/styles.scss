@@ -1,0 +1,234 @@
+/* this file will be extracted to main dist folder and is imported in index.html */
+/* This file is for setting global styles  */
+@import 'variables';
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+$abstand-links-rechts: 10px;
+
+h1 {
+  color: $text-color-heading;
+  font-size: $h1-size;
+}
+
+h2 {
+  color: $text-color-heading;
+  font-size: $h2-size;
+}
+
+h3 {
+  color: $text-color-heading;
+  font-size: $h3-size;
+}
+
+h4 {
+  color: $text-color-heading;
+  font-size: $h4-size;
+}
+
+p {
+  color: $text-color;
+  font-size: $p-size;
+}
+
+label {
+  font-size: $p-size !important;
+}
+
+nav {
+  height: $nav-height;
+  background-color: #303030;
+  display: flex;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.menu-right {
+  right: $abstand-links-rechts;
+  margin-left: auto;
+  position: absolute;
+  display: flex;
+}
+
+.menu-left {
+  margin-left: $abstand-links-rechts;
+  position: absolute;
+  display: flex;
+}
+
+.menu-item {
+  cursor: pointer;
+  color: $nav-button-color-text;
+  height: 100%;
+  background-color: $nav-button-color;
+  text-align: center;
+  min-width: 220px;
+  margin-right: $abstand-links-rechts;
+  padding: 15px;
+  vertical-align: middle;
+  line-height: 1.25;
+  font-size: $h2-size;
+}
+
+.menu-item:hover {
+  background-color: $nav-button-color-hover;
+  text-decoration: none;
+  color: $nav-button-color-text;
+}
+
+/*adjust bootstrap*/
+
+.card {
+  background-color: $milky-white;
+}
+
+.btn-info {
+  color: $nav-button-color-text !important;
+  background-color: $nav-button-color !important;
+  border-color: $nav-button-color-hover !important;
+}
+
+.btn-info.active {
+  background-color: $nav-button-color-hover !important;
+}
+
+$testvar: black;
+
+/**
+black and white class
+ */
+.root-style-font-x-large {
+  @import "variables_font_large_x";
+
+  h1 {
+    font-size: $h1-size !important;
+  }
+
+  h2 {
+    font-size: $h2-size !important;
+  }
+
+  h3 {
+    font-size: $h3-size !important;
+  }
+
+  h4 {
+    font-size: $h4-size !important;
+  }
+
+  p {
+    font-size: $p-size !important;
+  }
+
+  label {
+    font-size: $p-size !important;
+  }
+
+  nav {
+    height: $nav-height;
+  }
+  .menu-item {
+    font-size: $h2-size;
+  }
+}
+
+/**
+black and white class
+ */
+.root-style-font-large {
+  @import "variables_font_large";
+
+  h1 {
+    font-size: $h1-size !important;
+  }
+
+  h2 {
+    font-size: $h2-size !important;
+  }
+
+  h3 {
+    font-size: $h3-size !important;
+  }
+
+  h4 {
+    font-size: $h4-size !important;
+  }
+
+  p {
+    font-size: $p-size !important;
+  }
+
+  label {
+    font-size: $p-size !important;
+  }
+  nav {
+    height: $nav-height;
+  }
+
+  .menu-item {
+    font-size: $h2-size;
+  }
+}
+
+/**
+black and white class
+ */
+.root-style-black-white {
+  @import 'variables_black_white';
+
+  img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+  }
+
+  $testvar: white;
+
+  h1 {
+    color: $text-color-heading;
+  }
+  h2 {
+    color: $text-color-heading;
+  }
+  h3 {
+    color: $text-color-heading;
+  }
+  h3 {
+    color: $text-color-heading;
+  }
+  p {
+    color: $text-color;
+  }
+
+  nav {
+    background-color: #303030;
+  }
+
+  .menu-item {
+    color: $nav-button-color-text;
+    background-color: $nav-button-color;
+  }
+
+  .menu-item:hover {
+    background-color: $nav-button-color-hover;
+    color: $nav-button-color-text;
+  }
+
+  /*adjust bootstrap*/
+  .card {
+    background-color: $milky-white;
+  }
+  .jumbotron {
+    background-color: $milky-white;
+  }
+  .progress-bar {
+    background: #000;
+  }
+  .btn-info {
+    color: $nav-button-color-text !important;
+    background-color: $nav-button-color !important;
+    border-color: $nav-button-color-hover !important;
+  }
+  .btn-info.active {
+    background-color: $nav-button-color-hover !important;
+  }
+}
+

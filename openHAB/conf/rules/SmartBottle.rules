@@ -1,0 +1,81 @@
+import org.openhab.model.script.actions.Timer
+var Timer timer
+var Timer timer2
+
+
+rule "Remind if drinking state doesnt change"
+when
+	 Item SmartBottle changed
+then
+      if(SmartBottle.state > 70) {
+  		 timer = createTimer(now.plusSeconds(2)) [|
+  			 sendCommand(Show_Reminder, ON)
+  			 sendCommand(Light1_Toggle, ON)
+  		 ]
+  	 } else {
+  		 if(timer!=null) {
+  			 timer.cancel
+  			 timer = null
+  		 }
+  	 }
+end
+
+rule "stop Remind if drinking state doesnt change"
+when
+	 Item SmartBottle changed
+then
+      if(SmartBottle.state < 20) {
+  		 timer2 = createTimer(now.plusSeconds(2)) [|
+  			 sendCommand(Show_Reminder, OFF)
+  			 sendCommand(Light1_Toggle, OFF)
+  		 ]
+  	 } else {
+  		 if(timer2!=null) {
+  			 timer2.cancel
+  			 timer2 = null
+  		 }
+  	 }
+end
+
+rule "increase drinking level when bottle empties out"
+when
+	 Item SmartBottle changed
+then
+    var int prev = (SmartBottle.historicState(now.minus(100)).state as DecimalType).intValue
+	var int current = (SmartBottle.state as DecimalType).intValue
+	var int currentDrinkingValue = 0
+	// if null set to 0
+	if (Drinking_Value.state == NULL || Drinking_Value.state == "") Drinking_Value.postUpdate(0)
+	if( Drinking_Value.state != NULL && Drinking_Value.state != "" ) {
+	    currentDrinkingValue =  (Drinking_Value.state as DecimalType).intValue
+	}
+
+	logInfo("set Drinking_Value","previous: " + prev + " current: " + current  + " currentDrinkingValue " + currentDrinkingValue)
+    
+    var int addValue = 0
+    if(prev > current ){
+        addValue = (prev - current ) / 2
+        var int newVal = (currentDrinkingValue + addValue)
+        if(newVal > 100) {
+            newVal = 0;
+        }
+        logInfo("Drinking_Value","newVal: " + newVal + " addValue: " + addValue)
+        postUpdate(Drinking_Value, newVal)
+    }else{
+       logInfo("set Drinking_Value","previous not greater than current - nothing to do.")
+    }
+end
+
+
+rule "send mail to email-reminder-item"
+when
+	 Item EmailReminder changed
+then
+     logInfo("Mail","---------------------------------------------------------------------------------    Sending a mail to" + EmailReminder.state)
+     if(EmailReminder.state != "") {
+     	sendMail( EmailReminder.state + "" , "SmartDrinking Erinnerung " + EmailReminder.state, "Hallo, diese Mail wurde versandt, da das Trink-Level ungewöhnlich niedrig ist. Bitte melde dich doch kurz.  ")
+        postUpdate(EmailReminder,"")
+     }else{
+        logInfo("Mail"," Do nothing, value is" +EmailReminder.state )
+     }
+end

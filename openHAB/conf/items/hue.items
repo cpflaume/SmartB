@@ -1,0 +1,2 @@
+// Bulb1
+Switch	Light1_Toggle { channel="hue:0210:1:1:color" }

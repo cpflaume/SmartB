@@ -1,0 +1,36 @@
+<div class="container overview-wrapper">
+  <h1> Statistiken</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <div style="display: block;">
+        <canvas baseChart width="800" height="400"
+                [datasets]="chartData"
+                [labels]="chartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+  </div>
+  <p >Historie über {{hoursBack}} Stunden</p>
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-info " [ngClass]="{ active : (option == 1)}">
+      <input type="radio" name="options" id="option1" autocomplete="off" (click)="hoursBack = 0.5; change() ;"> 1/2 Stunde
+    </label>
+    <label class="btn btn-info" [ngClass]="{ active : (option == 2)}">
+      <input type="radio" name="options" id="option2" autocomplete="off" (click)="hoursBack = 1;  change() ;"> 1 Stunde
+    </label>
+    <label class="btn btn-info" [ngClass]="{ active : (option == 3)}">
+      <input type="radio" name="options" id="option3" autocomplete="off" (click)="hoursBack = 8; change() ;"> 8 Stunden
+    </label>
+  </div>
+  <p>Seconds per Datapoint</p>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">@</span>
+    <input type="number" class="form-control" placeholder="Seconds" aria-describedby="basic-addon1" (keyup)="onSecondsChange($event)" value="{{secondsPerStep}}" >
+  </div>
+
+</div>

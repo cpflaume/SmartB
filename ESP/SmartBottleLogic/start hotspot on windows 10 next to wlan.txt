@@ -1,0 +1,5 @@
+netsh wlan set hostednetwork mode=allow ssid=connyhotspot key=11223344
+netsh wlan start hostednetwork
+
+Dann bei den Adapter Einstellungen entsprechend die IP setzen....
+(conny merke: adapter 17 )

@@ -1,0 +1,8 @@
+# only contents of the conf folder to git
+/addons/
+/runtime/
+/userdata/
+/*.*
+!.gitignore
+!/conf/**/*
+!*.md

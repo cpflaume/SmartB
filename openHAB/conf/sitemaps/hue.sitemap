@@ -1,0 +1,13 @@
+sitemap hue label="Main Menu"
+{
+	Frame {
+		// Bulb1
+		Switch		item=		Light1_Toggle
+		Slider		item=		Light1_Dimmer
+		Colorpicker	item=		Light1_Color
+		Slider		item=		Light1_ColorTemp
+		Switch		item=		Light1_Alert		mappings=[NONE="None", SELECT="Alert", LSELECT="Long Alert"]
+		Switch		item=		Light1_Effect
+
+	}
+}

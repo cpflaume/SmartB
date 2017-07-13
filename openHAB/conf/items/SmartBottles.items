@@ -1,1 +1,4 @@
-Number SmartBottle "Der F�llstand ist [%d]" {mqtt="<[mosquitto:SmartBottle:state:default]"}
+Number SmartBottle "Der Füllstand ist [%d]"   (SmartDrinking) {mqtt="<[mosquitto:SmartBottle:state:default]"}
+Number Drinking_Value "Das Trinklevel beträgt [%d]" (SmartDrinking) {mqtt="<[mosquitto:DrinkingValue:state:default]"}
+Switch Show_Reminder "Erinnerung nötig [%d]" (SmartDrinking) {mqtt="<[mosquitto:Show_Reminder:state:default]"}
+String EmailReminder "Sende mail an [%s]" (SmartDrinking)

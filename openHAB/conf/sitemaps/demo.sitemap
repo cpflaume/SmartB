@@ -1,0 +1,14 @@
+sitemap demo label="My home automation" {
+    Frame label="Date" {
+        Text item=Date
+    }
+    Frame label="Demo" {
+        Group item=Heating
+        Switch item=Lights icon="big_bulb" mappings=[OFF="All Off"]
+        Text item=Temperature valuecolor=[>25="orange",>15="green",<=15="blue"]
+        Text item=Multimedia_Summary label="Multimedia" icon="video" {
+            Selection item=TV_Channel mappings=[0="off", 1="DasErste", 2="BBC One", 3="Cartoon Network"]
+            Slider item=Volume
+        }
+    }
+}

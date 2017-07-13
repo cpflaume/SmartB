@@ -1,0 +1,43 @@
+<div>
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container text-xs-center">
+      <h1 class="display-3 ">SmartDrinking</h1>
+      <p><img class="card-img-top hello-images" src="assets/img/drinking.PNG" alt="Card image cap" height="250px"></p>
+      <p class="lead">Willkommen bei SmartDrinking - dem intelligenten System für ein gesundes Leben</p>
+
+      <div class="card-wrapper">
+        <div class="card"  (click)="cardClicked({id: 1})">
+          <img class="card-img-top hello-images" src="assets/img/insel.PNG" alt="Card image cap" width="90%">
+          <div class="card-block">
+            <h4 class="card-title">Luise</h4>
+            <p><a class="btn btn-lg btn-secondary" role="button">Das bin ich!</a></p>
+          </div>
+        </div>
+
+        <div  class="card"  (click)="cardClicked({id: 2})">
+          <img class="card-img-top hello-images" src="assets/img/traussen.PNG" alt="Card image cap" width="90%">
+          <div class="card-block">
+            <h4 class="card-title">Mr. Traussen</h4>
+            <p><a class="btn btn-lg btn-secondary" role="button">Das bin ich!</a></p>
+          </div>
+        </div>
+        <div  class="card"  (click)="cardClicked({id: 3})">
+          <img class="card-img-top hello-images" src="assets/img/sohn.PNG" alt="Card image cap" width="90%">
+          <div class="card-block">
+            <h4 class="card-title">Frieder</h4>
+            <p><a class="btn btn-lg btn-secondary" role="button">Das bin ich!</a></p>
+          </div>
+        </div>
+        <div  class="card"  (click)="cardClicked({id: 4})" >
+          <img class="card-img-top hello-images" src="assets/img/pfleger.PNG" alt="Card image cap" width="90%">
+          <div class="card-block">
+            <h4 class="card-title">Pfleger</h4>
+            <p><a class="btn btn-lg btn-secondary" role="button">Das bin ich!</a></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
