@@ -1,9 +1,13 @@
-<p align="center">
-  <a href="http://courses.angularclass.com/courses/angular-2-fundamentals?utm_source=github-angular2-webpack-starter&utm_medium=open-source&utm_campaign=webpackstarter" target="_blank">
-    <img width="438" alt="Angular 2 Fundamentals" src="https://cloud.githubusercontent.com/assets/1016365/17200649/085798c6-543c-11e6-8ad0-2484f0641624.png">
-  </a>
-</p>
+# SmartDrinnking UI
+## Run
+`npm start`
+## Build
+`npm run build:prod`
+This will start a build process which will output all files to `../openHAB/conf/html/smartbottle`.
 
+This is the openHAB static folder, so when running openHAB the SmartDrinking UI will be served under `localhost:8080/static/smartbottle/`
+
+ 
 ___
 
 
