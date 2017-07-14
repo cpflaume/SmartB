@@ -3,9 +3,10 @@ See ReadMe's in the sub folders for any information
 
 
 #Mock Mqtt
-*mptt-listen.bat* - startet einen Listener auf den localen default MQTT Broker
-*mqtt-dummy-pub* - publiziert entlos Daten zwischen 0 und 100. 
-*mqtt-dummy-pub-reminder* - publiziert entlos Daten zwischen ON und OFF an das Reminder_Show item. 
+- *mptt-listen.bat* - startet einen Listener auf den localen default MQTT Broker
+- *mqtt-dummy-pub* - publiziert entlos Daten zwischen 0 und 100. 
+- *mqtt-dummy-pub-reminder* - publiziert entlos Daten zwischen ON und OFF an das Reminder_Show item. 
+
 **Achtung, der Pfad zu mosquitto muss gesetzt werden!**
 
 
