@@ -1,6 +1,6 @@
 # SmartDrinnking UI
 ## Run
-`npm start`
+`npm start` This will serve the ui (with hot reload) unter localhost:3000
 ## Build
 `npm run build:prod`
 This will start a build process which will output all files to `../openHAB/conf/html/smartbottle`.
